@@ -1,18 +1,27 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8;
 
-contract FixedByte{
-    bytes5 public temp1;
+contract DynamicBytes{
+    bytes public temp;
 
-    function setValue()public {
-        temp1="abcde";
-    }
-
-    function getValue(uint idx)public  view returns(bytes1){
-        return temp1[idx];
+    constructor(){
+        temp="123abcdef10212";
     }
 
     function getLength()public view returns(uint){
-        return temp1.length;
+        return temp.length;
     }
+
+    function popElement()public{
+        temp.pop();
+    }
+
+    function PushElement()public{
+        temp.push('A');
+    }
+
+    function getElement(uint idx)public view returns(bytes1){
+        return temp[idx];
+    }
+
 }
